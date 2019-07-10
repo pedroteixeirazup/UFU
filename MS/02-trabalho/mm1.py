@@ -1,8 +1,3 @@
-'''Segundo trabalho de Modelagem e Simulação: MM1
-   Grupo: Pedro Henrique Faria Teixeira
-          João Daniel de Aquino Rufino
-'''
-
 import random
 import numpy as np
 import math
