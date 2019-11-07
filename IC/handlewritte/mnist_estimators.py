@@ -2,6 +2,7 @@ import numpy as np
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import padronize as padronize
 
 old_v = tf.compat.v1.logging.get_verbosity()
 tf.compat.v1.logging.set_verbosity (tf.compat.v1.logging.ERROR)
@@ -82,15 +83,15 @@ funcao_teste = tf.estimator.inputs.numpy_input_fn(x = {'X': X_testes}, y = Y_tes
 resultados = classificador.evaluate(input_fn = funcao_teste)
 print(resultados)
 
-X_imagem_teste = X_testes[1] #Mude aqui para mudar o valor da previsao
+X_imagem_teste =  padronize.image_reshape()#X_testes[8] #Mude aqui para mudar o valor da previsao
 
 X_imagem_teste = X_imagem_teste.reshape(1,-1)
-print('TESTE:  ' + str(X_imagem_teste)
+
 funcao_previsao = tf.estimator.inputs.numpy_input_fn(x = {'X': X_imagem_teste}, shuffle = False)
 pred = list(classificador.predict(input_fn = funcao_previsao))
 
 print(pred[0])
-plt.imshow(X_imagem_teste.reshape(28,28), cmap='gray')
+plt.imshow(X_imagem_teste, cmap='gray')
 plt.title('Classe prevista: ' + str(pred[0]))
 plt.show()
 
