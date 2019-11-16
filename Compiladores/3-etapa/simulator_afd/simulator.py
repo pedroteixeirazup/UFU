@@ -44,11 +44,9 @@ def check_table(letter,table,word,counter):
 
         #Verifica e começa e terminal com um relop, entao aceita
     elif type_letter == 'relop' and word.startswith(letter) or fag == 1:
-        print(fag)
         fag = 1
-        print(fag)
+
         if fag == 1 and letter.isdigit() or letter.isalpha():
-            print("joo")
             fag = 0
             return 0, type_letter,get_row,get_col
         elif type_letter == 'relop':
@@ -76,7 +74,7 @@ def check_table(letter,table,word,counter):
 
 count = 1
 flag = 1
-# print(buffer)
+
 for word in buffer:
     for letter in word:
         result, type_token,get_row,get_col = check_table(letter,table,word,count)
@@ -96,7 +94,7 @@ for word in buffer:
             print()
 
         count+=1
-        time.sleep(2)
+        # time.sleep(2)
 
     count = 1
 
