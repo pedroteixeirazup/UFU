@@ -94,7 +94,7 @@ for word in buffer:
             print()
 
         count+=1
-        # time.sleep(2)
+        time.sleep(2)
 
     count = 1
 
