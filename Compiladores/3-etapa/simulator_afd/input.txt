@@ -1,6 +1,21 @@
+int aolf [] ;
+
 programa
     inicio
-        se
-
+        se ( a >= b ) or ( a < b)  or ( a == b)
+            skin + doi 
         entao
+            skol - o3as
     fim
+
+{% comment %} se 
+    faca 
+        ( troi / skoll ) + cha54a * pol
+entao 
+    return troi + pol
+
+faca
+    bloco
+enquanto ( condicao ) ; {% endcomment %}
+
+
