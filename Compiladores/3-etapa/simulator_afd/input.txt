@@ -1,9 +1,9 @@
 <> <= ==
-int aolf [ ] ;
+int aolf [ 2 ] ;
 
 programa
     inicio
-        se ( a >= b ) or ( a < b)  or ( a == b)
+        se ( a >= b ) or ( a < b )  or ( a == b )
             skin + doi 
         entao
             skol - o3as
