@@ -10,6 +10,7 @@ with pd.ExcelWriter('tabela.xlsx') as writer:  # doctest: +SKIP
     table.to_excel(writer, sheet_name='Sheet_name_1')
     writer.save()
 buffer = []
+table.to_csv('tabela.csv')
 with open(FILE,'r') as file:
     input = file
     for line in file:
