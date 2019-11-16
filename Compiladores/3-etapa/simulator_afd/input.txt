@@ -1,4 +1,5 @@
-int aolf [] ;
+<> <= ==
+int aolf [ ] ;
 
 programa
     inicio
@@ -8,7 +9,7 @@ programa
             skol - o3as
     fim
 
-{% comment %} se 
+se s
     faca 
         ( troi / skoll ) + cha54a * pol
 entao 
@@ -16,6 +17,6 @@ entao
 
 faca
     bloco
-enquanto ( condicao ) ; {% endcomment %}
+enquanto ( condicao ) ; 
 
 

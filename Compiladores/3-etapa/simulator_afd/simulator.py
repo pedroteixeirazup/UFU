@@ -19,8 +19,12 @@ with open(FILE,'r') as file:
             for x in data:
                 buffer.append(x)
 
-
+fag = 0
+count_rel=0
 def check_table(letter,table,word,counter):
+    global fag
+    global count_rel
+    
 
     type_letter = mount.check_type(letter)
     get_row, get_col = mount.check_letter_on_file(letter, word) #Pega linha e coluna de cada token
@@ -35,7 +39,22 @@ def check_table(letter,table,word,counter):
 
     #Aceita todos que possuem 1 estado final, letra, relop, operandos e numeros
     if word.endswith(letter) and counter == len(word) and finals['S'] >= 1:
+        fag = 0
         return 1, type_letter,get_row,get_col
+
+        #Verifica e começa e terminal com um relop, entao aceita
+    elif type_letter == 'relop' and word.startswith(letter) or fag == 1:
+        print(fag)
+        fag = 1
+        print(fag)
+        if fag == 1 and letter.isdigit() or letter.isalpha():
+            print("joo")
+            fag = 0
+            return 0, type_letter,get_row,get_col
+        elif type_letter == 'relop':
+            return 2, type_letter,get_row,get_col
+        else:
+            return 0, type_letter,get_row,get_col
 
     #Rejeita ids que comecao com numeros
     elif word.startswith(letter) and letter.isnumeric() and len(word) > 0:
