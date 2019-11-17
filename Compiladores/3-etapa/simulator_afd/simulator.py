@@ -20,10 +20,12 @@ with open(FILE,'r') as file:
                 buffer.append(x)
 
 fag = 0
+fog = 0
 count_rel=0
 def check_table(letter,table,word,counter):
     global fag
     global count_rel
+    global fog
     
 
     type_letter = mount.check_type(letter)
@@ -40,6 +42,7 @@ def check_table(letter,table,word,counter):
     #Aceita todos que possuem 1 estado final, letra, relop, operandos e numeros
     if word.endswith(letter) and counter == len(word) and finals['S'] >= 1:
         fag = 0
+        fog = 0
         return 1, type_letter,get_row,get_col
 
         #Verifica e começa e terminal com um relop, entao aceita
@@ -54,9 +57,13 @@ def check_table(letter,table,word,counter):
         else:
             return 0, type_letter,get_row,get_col
 
-    #Rejeita ids que comecao com numeros
-    elif word.startswith(letter) and letter.isnumeric() and len(word) > 0:
-        return 0, type_letter,get_row,get_col
+    #Rejeita ids que comecao com numeros, aceita digitos
+    elif word.startswith(letter) and letter.isnumeric() or fog == 1:
+        fog = 1
+        if fog == 1 and letter.isnumeric():
+            return 2, type_letter,get_row,get_col
+        elif fog == 1 and letter.isalpha():
+            return 0, type_letter,get_row,get_col
 
     #Verifica se possui alguma id com relop, operadores, simbolos
     elif type_letter == 'relop' and len(word) > 0 or type_letter == 'operador' and len(word) > 0 or type_letter == 'simbolo' and len(word) > 0:
@@ -94,7 +101,7 @@ for word in buffer:
             print()
 
         count+=1
-        # time.sleep(2)
+        time.sleep(2)
 
     count = 1
 

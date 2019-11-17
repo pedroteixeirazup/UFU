@@ -1,5 +1,4 @@
-<> <= ==
-int aolf [ 2 ] ;
+int aolf [ 22 ] ;
 
 programa
     inicio
